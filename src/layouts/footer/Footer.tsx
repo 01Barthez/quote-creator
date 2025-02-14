@@ -8,6 +8,9 @@ import {
 } from "@/components/ui/tooltip"
 import FlickeringGrid from "@/components/ui/flickering-grid";
 import { TextAnimate } from "@/components/ui/text-animate";
+import Logo from '@/components/custom/utils/Logo';
+import { FootersLinks } from '@/core/mocks/footer.mock';
+import FooterCol from './FooterCol';
 // import { FootersLinks, SocialLink } from '@/core/mocks/footer.mock'
 
 /**
@@ -18,8 +21,26 @@ import { TextAnimate } from "@/components/ui/text-animate";
 
 const Footer: React.FC = () => {
   return (
-    <footer className='w-full border-t border-t-foreground/80'>
-      footer
+    <footer className='w-full shadow-sm shadow-foreground/10 bg-[#130b5e] text-[#fafafa] text-sm'>
+      <div className="py-10 container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+
+        <div className="w-fit mx-auto">
+          <Logo />
+          <div className='text-sm  text-[#fafafa]/80'>
+            slogan / details
+          </div>
+        </div>
+
+        {
+          FootersLinks.map((listoflinks =>
+            <FooterCol
+              key={listoflinks.id}
+              title={listoflinks.title}
+              links={listoflinks.links}
+            />
+          ))
+        }
+      </div>
 
       {/* Profile */}
       <div className="border-t border-t-foreground/40 w-full px-1 py-[3px] space-x-1 font-light text-sm flex justify-center bg-foreground/50">
@@ -34,7 +55,7 @@ const Footer: React.FC = () => {
                 to={'https://gta-nomayos.cm/'}
                 target='_blank'
                 rel="noopener noreferrer"
-                className='font-normal text-primary/70 hover:text-primary/70 hover:underline duration-200 text-nowrap'
+                className='font-normal text-sky-400/80 hover:text-sky-400 hover:underline duration-200 text-nowrap'
               >
                 GTA DIGITAL
               </Link>

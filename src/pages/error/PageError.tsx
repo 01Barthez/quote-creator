@@ -16,7 +16,7 @@ const PageError: React.FC = () => {
 					<div className="w-fit">
 						<h1 className='bg-background p-0 w-fit mx-auto text-5xl md:text-6xl lg:text-7xl text-center font-bold'>
 							<span
-								className="bg-clip-text text-transparent bg-gradient-to-tr from-blue-500 via-[#c850c0] font-bold to-blue-500"
+								className="bg-clip-text text-transparent bg-gradient-to-tr from-blue-500 via-primary font-bold to-blue-500"
 							>
 								404
 							</span>
@@ -37,21 +37,14 @@ const PageError: React.FC = () => {
 					<div className="text-sm md:text-base mx-auto flex flex-wrap items-center gap-y-1 gap-4 md:gap-6 justify-center w-full capitalize">
 						<Link
 							to={'/'}
-							className="link-underline bg-clip-text text-transparent bg-gradient-to-tr from-blue-500 via-[#c850c0] to-blue-500 font-medium md:py-2"
+							className="link-underline bg-clip-text text-transparent bg-gradient-to-tr from-blue-500 via-primary to-blue-500 font-medium md:py-2"
 						>
 							<span>Back to Home</span>
 						</Link>
 
 						<Link
-							to={'/products'}
-							className="link-underline bg-clip-text text-transparent bg-gradient-to-tr from-[#c850c0] to-blue-500 font-medium md:py-2"
-						>
-							<span>view products</span>
-						</Link>
-
-						<Link
 							to={'/support'}
-							className="link-underline bg-clip-text text-transparent bg-gradient-to-tr from-blue-500 to-[#c850c0] font-medium md:py-2"
+							className="link-underline bg-clip-text text-transparent bg-gradient-to-tr from-blue-500 to-primary font-medium md:py-2"
 						>
 							<span>Contact Support</span>
 						</Link>

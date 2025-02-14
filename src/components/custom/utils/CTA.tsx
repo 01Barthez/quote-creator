@@ -5,13 +5,13 @@ import { Button } from '@/components/ui/button';
 import { useNavigate } from "react-router";
 import type { ICTA } from '@/interface/interface';
 
-const CTA: React.FC<ICTA> = ({name="Shop Now", url}) => {
+const CTA: React.FC<ICTA> = ({name="Create Projet", url}) => {
     let navigate = useNavigate();
 
     return (
         <Button
             variant={'outline'}
-            className='w-fit border-foreground bg-transparent py-5 px-6 md:px-10 backdrop-blur-md'
+                className='w-fit border-primary/80 py-5 px-4 md:px-6 backdrop-blur-md bg-primary hover:bg-primary/85 text-primary-foreground hover:text-primary-foreground'
             onClick={() => { navigate(`${url}`) }}
         >
             {name}

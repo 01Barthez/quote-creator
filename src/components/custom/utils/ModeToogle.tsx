@@ -20,7 +20,7 @@ const ModeToogle: React.FC = () => {
             variant='outline'
             size="icon"
             onClick={changeTheme}
-            className='bg-transparent group  border-none shadow-none h-auto w-auto p-2  rounded-full duration-200 text-footer-foreground hover:text-footer-foreground hover:bg-footer-foreground/5'
+            className='bg-transparent group  border-none shadow-none h-auto w-auto p-2  rounded-full duration-200 text-foreground hover:text-foreground hover:bg-foreground/5'
         >
             {
                 isLight ?

@@ -17,11 +17,6 @@ export const FootersLinks: IFootersLinks[] = [
             },
 
             {
-                url: '/products',
-                name: 'Products'
-            },
-
-            {
                 url: '/about-us',
                 name: 'About Us'
             },
@@ -36,6 +31,44 @@ export const FootersLinks: IFootersLinks[] = [
                 name: 'Blog'
             },
 
+        ],
+    },
+
+    {
+        id: uuidv4(),
+        title: 'Links',
+        links: [
+            {
+                url: '/contact',
+                name: 'Contact Us'
+            },
+
+            {
+                url: '/blog',
+                name: 'Blog'
+            },
+
+        ],
+    },
+
+    {
+        id: uuidv4(),
+        title: 'Navigations',
+        links: [
+            {
+                url: '/',
+                name: 'Home'
+            },
+
+            {
+                url: '/blog',
+                name: 'Blog'
+            },
+
+            {
+                url: '/',
+                name: 'Home'
+            },
         ],
     },
 ]

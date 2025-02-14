@@ -13,14 +13,14 @@ const FooterCol: React.FC<IFootersLinks> = (props) => {
     const FooterLinks = props.links;
 
     return (
-        <div className='text-foreground text-nowrap flex flex-col gap-2 items-center md:items-start'>
+        <div className='text-nowrap flex flex-col gap-2 items-center md:items-start'>
             {/* links title */}
             <h4 className="capitalize font-medium cursor-default text-base">
                 {props.title}
             </h4>
 
             {/* Differents links */}
-            <ul className="space-y-2 md:space-y-4 text-foreground/80 text-sm text-center md:text-left">
+            <ul className="space-y-2 md:space-y-4 text-sm text-center md:text-left">
                 {
                     FooterLinks.map((link) => (
                         <li key={uuidv4()} className="">

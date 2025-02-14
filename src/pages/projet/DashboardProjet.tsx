@@ -2,9 +2,9 @@ import React from 'react'
 
 const DashboardProjet: React.FC = () => {
     return (
-        <div>
+        <section className="container">
             dashboard Projet
-        </div>
+        </section>
     )
 }
 

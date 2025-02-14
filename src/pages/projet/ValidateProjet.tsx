@@ -2,9 +2,9 @@ import React from 'react'
 
 const ValidateProjet: React.FC = () => {
     return (
-        <div>
+        <section className="container">
             validate projet
-        </div>
+        </section>
     )
 }
 

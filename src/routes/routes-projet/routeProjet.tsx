@@ -11,7 +11,7 @@ const projetRoutes = {
             path: '/new-projet',
             element:
                 <PrivateRoute>
-                    <DynamicPageLoader pageKey="projet/CreateProjet" />,
+                    <DynamicPageLoader pageKey="projet/CreateProjet" />
                 </PrivateRoute>
         },
 
@@ -19,7 +19,7 @@ const projetRoutes = {
             path: '/details-projet/:slug',
             element:
                 <PrivateRoute>
-                    <DynamicPageLoader pageKey="projet/DetailProjet" />,
+                    <DynamicPageLoader pageKey="projet/DetailProjet" />
                 </PrivateRoute>
         },
 
@@ -27,7 +27,7 @@ const projetRoutes = {
             path: '/validate-projet/:slug',
             element:
                 <PrivateRoute>
-                    <DynamicPageLoader pageKey="projet/ValidateProjet" />,
+                    <DynamicPageLoader pageKey="projet/ValidateProjet" />
                 </PrivateRoute>
         },
 
@@ -35,7 +35,7 @@ const projetRoutes = {
             path: '/dashboard-projet/:slug',
             element:
                 <PrivateRoute>
-                    <DynamicPageLoader pageKey="projet/DashboardProjet" />,
+                    <DynamicPageLoader pageKey="projet/DashboardProjet" />
                 </PrivateRoute>
         },
     ]

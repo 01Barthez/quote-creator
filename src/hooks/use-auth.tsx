@@ -1,3 +1,24 @@
+
+
+
+
+const useAuth = () => {
+
+    return true;
+};
+  
+export default useAuth;
+
+
+
+
+
+
+
+
+
+
+
 // import { useEffect, useState } from 'react';
 // import { useStore } from '@/store'; 
 // import { useCookies } from 'react-cookie';

@@ -36,7 +36,7 @@ export const projectSchema = z.object({
             .min(3, {
                 message: "Description should be more than 3 characters !",
             })
-            .max(150, {
+            .max(350, {
                 message: "Description should be less than 150 characters !",
             }),
 });

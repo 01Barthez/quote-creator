@@ -3,7 +3,6 @@ import Navbar from '@/layouts/navbar/Navbar'
 import Footer from '@/layouts/footer/Footer'
 import authRoutes from './routes-config/authRoutes'
 import ScrollToTop from '@/components/custom/utils/ScrollToTop'
-import PrivateRoute from '@/components/custom/utils/PrivateRoute'
 import DynamicPageLoader from '@/components/custom/utils/LazyCompoment'
 import projetRoutes from './routes-projet/routeProjet'
 
@@ -44,16 +43,6 @@ const Router = createBrowserRouter([
 						element: <DynamicPageLoader pageKey="home/Home" />
 					},
 
-					// Exemple of private route
-					{
-						path: '/account',
-						element: (
-							<PrivateRoute>
-								<>User Account</>
-							</PrivateRoute>
-						)
-					},
-	
 					// routes projet
 					projetRoutes,
 

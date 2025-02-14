@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
       <div className='container flex items-center justify-between'>
         <Logo />
 
-        <div className='flex items-center gap-1 ' >
+        <div className='flex items-center gap-4 ' >
           <CTA url='/new-projet' />
           <ModeToogle />
         </div>

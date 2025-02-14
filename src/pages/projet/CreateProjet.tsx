@@ -23,17 +23,17 @@ import slug from 'slug'
 
 const CreateProjet: React.FC = () => {
     const navigate = useNavigate();
-    const { setProject, project } = useProjectStore();
+    const { setProject } = useProjectStore();
+    
     const form = useForm<z.infer<typeof projectSchema>>({
         resolver: zodResolver(projectSchema),
         defaultValues: {
-            name: `${project && project.name}`,
-            description: `${project && project.description}`,
+            name: ``,
+            description: ``,
         },
     })
 
     const backHome = () => {
-        setProject(null);
         navigate("/");
     }
 

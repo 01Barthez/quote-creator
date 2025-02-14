@@ -20,13 +20,13 @@ const ModeToogle: React.FC = () => {
             variant='outline'
             size="icon"
             onClick={changeTheme}
-            className='bg-transparent group  border-none shadow-none h-auto w-auto p-2  rounded-full duration-200 text-foreground hover:text-foreground hover:bg-foreground/5'
+            className='bg-transparent group  border border-foreground/60 shadow-none h-auto w-auto p-2  rounded-full duration-200 text-foreground hover:text-foreground hover:bg-foreground/5 text-2xl'
         >
             {
                 isLight ?
-                    <BiSun className="group-hover:-rotate-[25deg] text-xl duration-500" />
+                    <BiSun className="group-hover:-rotate-[25deg] duration-500" />
                     :
-                    <RxMoon className="group-hover:-rotate-[25deg] text-xl duration-500" />
+                    <RxMoon className="group-hover:-rotate-[25deg] duration-500" />
             }
         </Button>
     )

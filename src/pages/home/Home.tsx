@@ -14,7 +14,7 @@ const Home: React.FC = () => {
             {/* App Comoments */}
             <div className='container py-10 md:py-24 lg:py-36 flex items-center justify-center flex-col gap-4 md:gap-6 lg:gap-10'>
                 <h1 className='text-xl md:text-2xl lg:text-4xl font-bold text-center'>
-                    Welcome to <span className="text-primary"><span className="text-2xl md:text-3xl lg:text-5xl">D</span>evis</span><span className="text-2xl md:text-3xl lg:text-5xl">M</span>aster
+                    Welcome to <span className="text-primary"><span className="text-2xl md:text-3xl lg:text-5xl">D</span></span>evis<span className="text-2xl md:text-3xl lg:text-5xl text-primary">M</span>aster
                 </h1>
 
                 <p className='text-center text-foreground/80'>

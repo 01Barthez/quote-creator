@@ -1,16 +1,16 @@
 {
-  "name": "react-template",
+  "name": "devis-master",
   "private": "false",
   "version": "0.0.0",
-  "description": "description of the projet",
+  "description": "DevisMaster is a web application allowing professionals and individuals to create detailed quotes for their projects. Thanks to an intuitive interface, the user can define their project, divide it into phases, list the necessary materials and obtain a precise estimate of the production cost.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/01Barthez/start-react-projet"
+    "url": "https://github.com/01Barthez/quote-creator"
   },
-  "homepage": "https://github.com/01Barthez/start-react-projet#readme",
-  "readme": "https://github.com/01Barthez/start-react-projet#readme",
+  "homepage": "https://github.com/01Barthez/quote-creator#readme",
+  "readme": "https://github.com/01Barthez/quote-creator#readme",
   "bugs": {
-    "url": "https://github.com/01Barthez/start-react-projet/issues"
+    "url": "https://github.com/01Barthez/quote-creator/issues"
   },
   "author": {
     "name": "Barthez Kenwou",
@@ -20,9 +20,15 @@
   "license": "MIT",
   "main": "index.html",
   "keywords": [
-    "list",
-    "of",
-    "keywords"
+    "devis master",
+    "quote creator",
+    "devis",
+    "estimation",
+    "gestion de projet",
+    "automatic calcul",
+    "cost calculation",
+    "project workflow",
+    "materials management"
   ],
   "type": "module",
   "engines": {

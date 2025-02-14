@@ -3,7 +3,7 @@ import fs from 'fs';
 
 const generateSitemap = async () => {
   const smStream = new SitemapStream({
-    hostname: 'https://iphone-cameroon.onrender.com/',
+    hostname: 'https://quote-creator.onrender.com/',
   });
   smStream.write({ url: '/', changefreq: 'daily', priority: 1.0 });
   smStream.write({ url: '/products', changefreq: 'weekly', priority: 0.8 });

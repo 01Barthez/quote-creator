@@ -10,7 +10,7 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 0 0% 0% 0.94;
+    --primary: 240 100% 33%;
     --footer: 240 10% 3.9%;
     --footer-foreground: 0 0% 100%;
     --primary-foreground: 240 10% 3.9%;
@@ -77,36 +77,37 @@
     @apply duration-200 hover:translate-x-1.5 hover:text-footer-foreground;
   }
 
+  /* HTML: <div class="loader"></div> */
   .loader {
     width: 50px;
     aspect-ratio: 1;
     display: grid;
+    border: 4px solid #0000;
+    border-radius: 50%;
+    border-color: #ccc #0000;
+    animation: l16 1s infinite linear;
   }
-
   .loader::before,
   .loader::after {
     content: '';
     grid-area: 1/1;
-    --c: no-repeat radial-gradient(farthest-side, #4158d0 72%, #0000);
-    background:
-      var(--c) 50% 0,
-      var(--c) 50% 100%,
-      var(--c) 100% 50%,
-      var(--c) 0 50%;
-    background-size: 12px 12px;
-    animation: l12 0.8s infinite;
+    margin: 2px;
+    border: inherit;
+    border-radius: 50%;
   }
-
-  .dark .loader::before,
-  .dark .loader::after {
-    --c: no-repeat radial-gradient(farthest-side, #c850c0 72%, #0000);
-  }
-
   .loader::before {
-    margin: 4px;
-    filter: hue-rotate(45deg);
-    background-size: 8px 8px;
-    animation-timing-function: linear;
+    border-color: #00a #0000;
+    animation: inherit;
+    animation-duration: 0.5s;
+    animation-direction: reverse;
+  }
+  .loader::after {
+    margin: 8px;
+  }
+  @keyframes l16 {
+    100% {
+      transform: rotate(1turn);
+    }
   }
 }
 

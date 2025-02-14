@@ -5,4 +5,4 @@ Disallow: /login
 Disallow: /register
 Disallow: /account
 
-Sitemap: https://iphone-cameroon.onrender.com/sitemap.xml
+Sitemap: https://quote-creator.onrender.com/sitemap.xml

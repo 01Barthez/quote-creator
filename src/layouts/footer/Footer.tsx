@@ -31,12 +31,12 @@ const Footer: React.FC = () => {
           <Tooltip>
             <TooltipTrigger>
               <Link
-                to={'https://www.linkedin.com/in/barthez-kenwou/'}
+                to={'https://gta-nomayos.cm/'}
                 target='_blank'
                 rel="noopener noreferrer"
                 className='font-normal text-primary/70 hover:text-primary/70 hover:underline duration-200 text-nowrap'
               >
-                Barthez Kenwou
+                GTA DIGITAL
               </Link>
             </TooltipTrigger>
 
@@ -45,12 +45,12 @@ const Footer: React.FC = () => {
                 <p className="flex flex-col gap-2">
                   <span className="bg-footer w-fit">
                     <TextAnimate animation="slideLeft" by="character">
-                      Hello, I am Barthez Kenwou,
+                      GTA Digital,
                     </TextAnimate>
                   </span>
                   <p className="">
                     <span className="bg-footer">
-                      I am a passionate <b>full-stack web</b> developer,
+                      Gta is a <b>software agency</b>,
                     </span>
                     <br />
                     <span className="bg-footer">
@@ -62,11 +62,11 @@ const Footer: React.FC = () => {
                     </span>
                     <br />
                     <span className="bg-footer">
-                      I combine creativity with technical precision.
+                      we combine creativity with technical precision.
                     </span>
                     <br />
                     <span className="bg-footer">
-                      Always seeking innovation, I am committed to tackling
+                      Always seeking innovation, we are committed to tackling
                     </span>
                     <br />
                     <span className="bg-footer">
@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
                 <p className="flex items-center gap-10">
                   <p className="bg-footer flex flex-col leading-3 w-fit">
                     <span>Do you want to</span>
-                    <span>contact me ?</span>
+                    <span>contact us ?</span>
                   </p>
 
                   {/* Contact Informations */}
@@ -88,10 +88,10 @@ const Footer: React.FC = () => {
                       <Link
                         to={'https://www.linkedin.com/in/barthez-kenwou/'}
                         target='_blank'
-                        className='font-medium text-primary/85 hover:text-primary duration-200 text-nowrap'
+                        className='font-medium text-sky-400/85 hover:text-sky-400 duration-200 text-nowrap'
                       >
                         <TextAnimate animation="blurIn" className='inline ml-2'>
-                          My LinkedIn profile
+                          LinkedIn page
                         </TextAnimate>
                       </Link>
                     </p>
@@ -99,13 +99,13 @@ const Footer: React.FC = () => {
                     <p className="bg-footer w-fit">
                       Whatsapp:
                       <Link
-                        to={'https://wa.me/237655646688?text=bonjour%20Barthez%20Kenwou'}
+                        to={'https://wa.me/237679790400?text=bonjour%20GTA%20DIGITAL'}
                         target='_blank'
                         rel="noopener noreferrer"
-                        className='font-medium text-primary/85 hover:text-primary duration-200 text-nowrap'
+                        className='font-medium text-sky-400/85 hover:text-sky-400 duration-200 text-nowrap'
                       >
                         <TextAnimate animation="blurIn" by="character" className='inline ml-2'>
-                          +237 655 646 688
+                          +237 679 790 400
                         </TextAnimate>
                       </Link>
                     </p>

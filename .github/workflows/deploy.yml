@@ -1,0 +1,45 @@
+name: CI-CD pipeline - React-Starter
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js and install dependancies
+        uses: ./.github/actions/setup-node
+
+      - name: continuous Integration
+        env:
+          HOST: ${{ secrets.HOST }}
+          PORT: ${{ secrets.PORT }}
+        run: yarn ci
+
+      - name: Create new tag
+        # uses: ./.github/actions/create-tag
+        # with:
+        #   GH_PAT: ${{ secrets.GH_PAT }}
+        run: echo "create tag process skipped... !"
+
+      - name: Deploy to render
+        uses: ./.github/actions/deploy-render
+        with:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
+
+      # - name: Notify Slack on success
+      #   if: success()
+      #   uses: slackapi/slack-github-action@v2.0.0
+      #   with:
+      #     slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+      #     message: "Deployment to Render succeeded! 🎉"
+
+      - name: Send success message
+        run: echo "All done successfully! 🚀"

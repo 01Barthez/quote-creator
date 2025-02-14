@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /cart
+Disallow: /checkout
+Disallow: /login
+Disallow: /register
+Disallow: /account
+
+Sitemap: https://iphone-cameroon.onrender.com/sitemap.xml

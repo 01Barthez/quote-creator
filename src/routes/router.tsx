@@ -5,6 +5,7 @@ import authRoutes from './routes-config/authRoutes'
 import ScrollToTop from '@/components/custom/utils/ScrollToTop'
 import PrivateRoute from '@/components/custom/utils/PrivateRoute'
 import DynamicPageLoader from '@/components/custom/utils/LazyCompoment'
+import projetRoutes from './routes-projet/routeProjet'
 
 /**
  * Creates a router with specified routes and elements for each route.
@@ -32,7 +33,7 @@ const Router = createBrowserRouter([
 				path: '/',
 				element: <>
 					<Navbar />
-					<div className='min-h-[80vh]'>
+					<div className='container py-6 md:py-10 min-h-[80vh]'>
 						<Outlet />
 					</div>
 					<Footer />
@@ -52,6 +53,9 @@ const Router = createBrowserRouter([
 							</PrivateRoute>
 						)
 					},
+	
+					// routes projet
+					projetRoutes,
 
 					// Authentication routes part
 					authRoutes,

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CreateProject: React.FC = () => {
+const CreateProjet: React.FC = () => {
     return (
         <div>
             New Projet
@@ -8,4 +8,4 @@ const CreateProject: React.FC = () => {
     )
 }
 
-export default CreateProject
+export default CreateProjet

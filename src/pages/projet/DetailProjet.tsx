@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DetailProject: React.FC = () => {
+const DetailProjet: React.FC = () => {
     return (
         <div>
             projet details
@@ -8,4 +8,4 @@ const DetailProject: React.FC = () => {
     )
 }
 
-export default DetailProject
+export default DetailProjet

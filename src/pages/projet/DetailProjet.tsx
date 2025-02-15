@@ -29,19 +29,6 @@ const DetailProjet: React.FC = () => {
     const navigate = useNavigate();
     const { setProject, project } = useProjectStore();
 
-    
-    if (!project || project.slug !== slug) {
-        return(
-            <>
-                <Navigate to="/page-not-found" />;
-            </>
-        )
-    }
-    
-    const backHome = () => {
-        navigate(-1);
-    }
-
     const form = useForm<z.infer<typeof projectDetailsSchema>>({
         resolver: zodResolver(projectDetailsSchema),
         defaultValues: {
@@ -49,6 +36,18 @@ const DetailProjet: React.FC = () => {
             description: `${project && project.description}`,
         },
     })
+    /*
+    if (!project || project.slug !== slug) {
+        return(
+            <>
+                <Navigate to="/page-not-found" />;
+            </>
+        )
+    }
+    */
+    const backHome = () => {
+        navigate(-1);
+    }
 
     function onSubmit(values: z.infer<typeof projectDetailsSchema>) {
 
@@ -71,8 +70,8 @@ const DetailProjet: React.FC = () => {
         <section className="container space-y-10">
             <div className="flex flex-col gap-2">
                 <h1 className='text-2xl md:text-3xl lg:text-4xl font-bold'>
-                    <span className="text-primary">C</span>reate a <span className="text-primary">N</span>ew projet
-                    projet details: {slug}
+                    <span className="text-primary">D</span>etail of &nbspc;<span className="text-primary">P</span>rojet <br/>
+                    <span className="text-xl md:text-2xl lg:text-3xl">{project.name}</span>
                 </h1>
 
                 <p className='text-foreground/80 text-sm md:text-base'>

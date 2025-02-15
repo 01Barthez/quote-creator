@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
               </Link>
             </TooltipTrigger>
 
-            <TooltipContent className='px-6 py-2 relative bg-footer border border-footer-foreground text-footer-foreground text-xs'>
+            <TooltipContent className='px-6 py-2 relative bg-footer backdrop-blur-sm border border-white/20 text-white/80 text-xs'>
               <p className='relative z-30 space-y-3 leading-4'>
                 <p className="flex flex-col gap-2">
                   <span className="bg-footer w-fit">
@@ -138,7 +138,7 @@ const Footer: React.FC = () => {
                 className="z-0 absolute inset-0 size-full"
                 squareSize={4}
                 gridGap={6}
-                color="#2f22f2"
+                color="#00f"
                 maxOpacity={0.3}
                 flickerChance={0.8}
                 height={800}

@@ -78,12 +78,14 @@ export interface IProject {
     slug: string;
     status: statusProjet;
     phases: IPhase[];
-};
-
-export interface IProjectStore {
+  };
+  
+  export interface IProjectStore {
     project: IProject | null;
+    hasSeenSuccess: boolean;
     setProject: (project: IProject|null) => void;
     addPhase: (phase: IPhase) => void;
     addMaterialToPhase: (numeroPhase: number, material: IMaterial) => void;
     updateProjectStatus: (status: statusProjet) => void;
+    markSuccessSeen: () => void;
 };

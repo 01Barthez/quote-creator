@@ -3,8 +3,13 @@ import { create } from "zustand";
 
 export const useProjectStore = create<IProjectStore>((set) => ({
     project: null,
+    hasSeenSuccess: false,
 
-    setProject: (project) => set({ project }),
+    setProject: (project) =>
+        set({
+            project,
+            hasSeenSuccess: false
+        }),
 
     addPhase: (phase) =>
         set((state) => ({
@@ -31,4 +36,6 @@ export const useProjectStore = create<IProjectStore>((set) => ({
         set((state) => ({
             project: state.project ? { ...state.project, status } : null,
         })),
+
+    markSuccessSeen: () => set({ hasSeenSuccess: true }),
 }));

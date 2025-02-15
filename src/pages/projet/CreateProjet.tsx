@@ -20,16 +20,17 @@ import { Textarea } from "@/components/ui/textarea"
 import { useProjectStore } from "@/stores/projet.store";
 import slug from 'slug'
 import type { IProject } from "@/interface/interface";
+import { motion } from 'framer-motion';
 
 const CreateProjet: React.FC = () => {
     const navigate = useNavigate();
     const { setProject, project } = useProjectStore();
-    
+
     const form = useForm<z.infer<typeof projectSchema>>({
         resolver: zodResolver(projectSchema),
         defaultValues: {
             name: `${project && project.name}`,
-            description:`${project && project.description}`,
+            description: `${project && project.description}`,
         },
     })
 
@@ -47,20 +48,29 @@ const CreateProjet: React.FC = () => {
 
         setProject(newProject);
         navigate(`/details-projet/${slugName}`);
-        console.log(newProject);
-    }    
+    }
 
     return (
         <section className="container space-y-10">
             <div className="flex flex-col gap-2">
-                <h1 className='text-2xl md:text-3xl lg:text-4xl font-bold'>
+                <motion.h1
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className='text-2xl md:text-3xl lg:text-4xl font-bold'
+                >
                     <span className="text-primary">C</span>reate a <span className="text-primary">N</span>ew projet
-                </h1>
+                </motion.h1>
 
-                <p className='text-foreground/80 text-sm md:text-base'>
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: .6, delay: 0.2, ease: "easeOut" }}
+                    className='text-foreground/80 text-sm md:text-base'
+                >
                     You want to create new projet ? <br />
                     Provides required information to achieve it !
-                </p>
+                </motion.p>
             </div>
 
             <Form {...form}>
@@ -68,7 +78,12 @@ const CreateProjet: React.FC = () => {
                     onSubmit={form.handleSubmit(onSubmit)}
                     className="space-y-8 md:space-y-10 lg:space-y-16 w-full md:w-[80%] lg:w-[55%]"
                 >
-                    <div className="space-y-4">
+                    <motion.div 
+                    initial={{ opacity: 0, x: -300 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: .6, delay: 0.3, ease: "easeOut" }}
+                    className="space-y-4"
+                    >
                         <FormField
                             control={form.control}
                             name="name"
@@ -119,24 +134,36 @@ const CreateProjet: React.FC = () => {
                                 </FormItem>
                             )}
                         />
-                    </div>
+                    </motion.div>
 
                     <div className="flex items-center gap-4 md:gap-6 lg:gap-10">
-                        <Button
-                            variant={'outline'}
-                            className='px-4 md:px-6 lg:px-8 border-foreground/30 text-foreground/70'
-                            onClick={() => navigate("/")}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: .5, delay: 0.3, ease: "easeOut" }}
                         >
-                            <span>Back&nbsp;Home</span>
-                        </Button>
+                            <Button
+                                variant={'outline'}
+                                className='px-2 md:px-2 lg:px-3 border-foreground/30 text-foreground/70'
+                                onClick={() => navigate("/")}
+                            >
+                                <span>Back&nbsp;Home</span>
+                            </Button>
+                        </motion.div>
 
-                        <Button
-                            type="submit"
-                            className="px-4 md:px-6 lg:px-8 font-semibold"
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: .6, delay: 0.4, ease: "easeOut" }}
                         >
-                            <span>Next</span>
-                            <AiOutlineArrowRight />
-                        </Button>
+                            <Button
+                                type="submit"
+                                className="px-4 md:px-6 lg:px-8 font-semibold"
+                            >
+                                <span>Next</span>
+                                <AiOutlineArrowRight />
+                            </Button>
+                        </motion.div>
                     </div>
                 </form>
             </Form>

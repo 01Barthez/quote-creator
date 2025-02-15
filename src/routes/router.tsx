@@ -4,7 +4,7 @@ import Footer from '@/layouts/footer/Footer'
 import authRoutes from './routes-config/authRoutes'
 import ScrollToTop from '@/components/custom/utils/ScrollToTop'
 import DynamicPageLoader from '@/components/custom/utils/LazyCompoment'
-import projetRoutes from './routes-projet/routeProjet'
+import projetRoutes from './routes-projet/projetRoutes'
 
 /**
  * Creates a router with specified routes and elements for each route.

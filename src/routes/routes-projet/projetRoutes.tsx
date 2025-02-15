@@ -35,7 +35,7 @@ const projetRoutes = {
             path: '/success-creation-projet/:slug',
             element:
                 <PrivateRoute>
-                    <DynamicPageLoader pageKey="projet/successCreationProjet" />
+                    <DynamicPageLoader pageKey="projet/SuccessCreationProjet" />
                 </PrivateRoute>
         },
         

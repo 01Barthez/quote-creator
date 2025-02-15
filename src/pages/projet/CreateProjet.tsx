@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Button } from '@/components/ui/button'
 import React from 'react'
@@ -23,19 +23,15 @@ import slug from 'slug'
 
 const CreateProjet: React.FC = () => {
     const navigate = useNavigate();
-    const { setProject } = useProjectStore();
+    const { setProject, project } = useProjectStore();
     
     const form = useForm<z.infer<typeof projectSchema>>({
         resolver: zodResolver(projectSchema),
         defaultValues: {
-            name: ``,
-            description: ``,
+            name: `${project && project.name}`,
+            description:`${project && project.description}`,
         },
     })
-
-    const backHome = () => {
-        navigate("/");
-    }
 
     function onSubmit(values: z.infer<typeof projectSchema>) {
 
@@ -129,7 +125,7 @@ const CreateProjet: React.FC = () => {
                         <Button
                             variant={'outline'}
                             className='px-4 md:px-6 lg:px-8 border-foreground/30 text-foreground/70'
-                            onClick={backHome}
+                            onClick={() => navigate("/")}
                         >
                             <span>Back&nbsp;Home</span>
                         </Button>

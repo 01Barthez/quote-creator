@@ -19,9 +19,9 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Textarea } from "@/components/ui/textarea"
 import { useProjectStore } from "@/stores/projet.store";
-import type { Project } from "@/stores/projet.store";
 import slug from 'slug'
 import { Navigate } from 'react-router-dom';
+import type { IProject } from '@/interface/interface';
 
 
 const DetailProjet: React.FC = () => {
@@ -53,7 +53,7 @@ const DetailProjet: React.FC = () => {
 
         const slugName = slug(values.name)
 
-        const newProject: Project = {
+        const newProject: IProject = {
             name: values.name,
             description: values.description,
             slug: slugName,

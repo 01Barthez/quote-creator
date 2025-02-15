@@ -26,7 +26,6 @@ export interface IFootersLinks {
     name: string;
   }[],
 }
-
 export interface FetchState<T> {
   data: T | null;
   loading: boolean;
@@ -54,3 +53,37 @@ export interface ICTA extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   url: string
 }
 
+
+type statusPhase = "pending" | "completed";
+type statusProjet = "draft" | "pending" | "validated";
+
+export interface IMaterial {
+    materiel: string;
+    quantite: string;
+};
+
+export interface IPhase {
+    numeroPhase: number;
+    name: string;
+    description: string;
+    status: statusPhase;
+    startDate: string;
+    endDate: string;
+    materials: IMaterial[];
+};
+
+export interface IProject {
+    name: string;
+    description: string;
+    slug: string;
+    status: statusProjet;
+    phases: IPhase[];
+};
+
+export interface IProjectStore {
+    project: IProject | null;
+    setProject: (project: IProject|null) => void;
+    addPhase: (phase: IPhase) => void;
+    addMaterialToPhase: (numeroPhase: number, material: IMaterial) => void;
+    updateProjectStatus: (status: statusProjet) => void;
+};

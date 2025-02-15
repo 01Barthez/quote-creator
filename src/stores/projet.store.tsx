@@ -1,40 +1,7 @@
+import type { IProjectStore } from "@/interface/interface";
 import { create } from "zustand";
 
-type statusPhase = "pending" | "completed";
-type statusProjet = "draft" | "pending" | "validated";
-
-type Material = {
-    materiel: string;
-    quantite: string;
-};
-
-type Phase = {
-    numeroPhase: number;
-    name: string;
-    description: string;
-    status: statusPhase;
-    startDate: string;
-    endDate: string;
-    materials: Material[];
-};
-
-export type Project = {
-    name: string;
-    description: string;
-    slug: string;
-    status: statusProjet;
-    phases: Phase[];
-};
-
-type ProjectStore = {
-    project: Project | null;
-    setProject: (project: Project|null) => void;
-    addPhase: (phase: Phase) => void;
-    addMaterialToPhase: (numeroPhase: number, material: Material) => void;
-    updateProjectStatus: (status: statusProjet) => void;
-};
-
-export const useProjectStore = create<ProjectStore>((set) => ({
+export const useProjectStore = create<IProjectStore>((set) => ({
     project: null,
 
     setProject: (project) => set({ project }),

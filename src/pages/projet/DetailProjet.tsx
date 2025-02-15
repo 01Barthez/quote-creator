@@ -4,7 +4,6 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { Button } from '@/components/ui/button'
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
-import { projectDetailsSchema } from "@/core/schema/schema";
 import type { z } from "zod";
 import {
     Form,
@@ -22,6 +21,7 @@ import { useProjectStore } from "@/stores/projet.store";
 import slug from 'slug'
 import { Navigate } from 'react-router-dom';
 import type { IProject } from '@/interface/interface';
+import { phasesSchema } from '@/core/schema/schema';
 
 
 const DetailProjet: React.FC = () => {
@@ -29,8 +29,8 @@ const DetailProjet: React.FC = () => {
     const navigate = useNavigate();
     const { setProject, project } = useProjectStore();
 
-    const form = useForm<z.infer<typeof projectDetailsSchema>>({
-        resolver: zodResolver(projectDetailsSchema),
+    const form = useForm<z.infer<typeof phasesSchema>>({
+        resolver: zodResolver(phasesSchema),
         defaultValues: {
             name: `${project && project.name}`,
             description: `${project && project.description}`,
@@ -49,7 +49,7 @@ const DetailProjet: React.FC = () => {
         navigate(-1);
     }
 
-    function onSubmit(values: z.infer<typeof projectDetailsSchema>) {
+    function onSubmit(values: z.infer<typeof phasesSchema>) {
 
         const slugName = slug(values.name)
 

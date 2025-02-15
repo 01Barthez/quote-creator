@@ -41,7 +41,7 @@ export const projectSchema = z.object({
             }),
 });
 
-export const projectDetailsSchema = z.object({
+export const phasesSchema = z.object({
     name:
         z.string({
             required_error: "Name of projet is required !",
@@ -67,4 +67,13 @@ export const projectDetailsSchema = z.object({
             .max(350, {
                 message: "Description should be less than 150 characters !",
             }),
+
+    startDate: z.date({}),
+
+    endDate: z.date({}),
+
+    material: z.object({
+        materiel: z.string({}),
+        quantite: z.string({}),
+    })
 });

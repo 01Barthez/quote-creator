@@ -44,14 +44,14 @@ export default SEO
 const defaultSEO = {
 	"keywords": [
 		"devis",
-		"estimation", 
-		"gestion de projet", 
-		"automatic calcul", 
-		"cost calculation", 
-		"project workflow", 
+		"estimation",
+		"gestion de projet",
+		"automatic calcul",
+		"cost calculation",
+		"project workflow",
 		"materials management"
-	  ],
-		image: '/images/preview-image.png',
+	],
+	image: '/images/preview-image.png',
 	url: typeof window !== 'undefined' ? window.location.href : '',
 	type: 'website',
 };    

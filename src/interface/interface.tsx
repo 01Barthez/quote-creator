@@ -59,7 +59,7 @@ type statusProjet = "draft" | "pending" | "validated";
 
 export interface IMaterial {
     materiel: string;
-    quantite: string;
+    quantite: number;
 };
 
 export interface IPhase {

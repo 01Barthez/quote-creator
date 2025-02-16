@@ -51,8 +51,9 @@ const CreateProjet: React.FC = () => {
     }
 
     return (
-        <section className="container space-y-10">
+        <section className="container space-y-10 py-16 md:py-16 lg:py-20">
             <div className="flex flex-col gap-2">
+                {/*  Title */}
                 <motion.h1
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -62,6 +63,7 @@ const CreateProjet: React.FC = () => {
                     <span className="text-primary">C</span>reate a <span className="text-primary">N</span>ew projet
                 </motion.h1>
 
+                {/*  description */}
                 <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -73,16 +75,17 @@ const CreateProjet: React.FC = () => {
                 </motion.p>
             </div>
 
+            {/* form */}
             <Form {...form}>
                 <form
                     onSubmit={form.handleSubmit(onSubmit)}
                     className="space-y-8 md:space-y-10 lg:space-y-16 w-full md:w-[80%] lg:w-[55%]"
                 >
-                    <motion.div 
-                    initial={{ opacity: 0, x: -300 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: .6, delay: 0.3, ease: "easeOut" }}
-                    className="space-y-4"
+                    <motion.div
+                        initial={{ opacity: 0, x: -300 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: .6, delay: 0.3, ease: "easeOut" }}
+                        className="space-y-4"
                     >
                         <FormField
                             control={form.control}

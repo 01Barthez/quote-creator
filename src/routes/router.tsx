@@ -32,7 +32,7 @@ const Router = createBrowserRouter([
 				path: '/',
 				element: <>
 					<Navbar />
-					<div className='py-10 md:py-20'>
+					<div className=''>
 						<Outlet />
 					</div>
 					<Footer />

@@ -67,11 +67,11 @@ const DetailProjet: React.FC = () => {
     }    
 
     return (
-        <section className="container space-y-10">
+        <section className="container space-y-10 py-10 md:py-16 lg:py-20 ">
             <div className="flex flex-col gap-2">
                 <h1 className='text-2xl md:text-3xl lg:text-4xl font-bold'>
-                    <span className="text-primary">D</span>etail of &nbspc;<span className="text-primary">P</span>rojet <br/>
-                    <span className="text-xl md:text-2xl lg:text-3xl">{project.name}</span>
+                    <span className="text-primary">D</span>etail of &nbsp;<span className="text-primary">P</span>rojet <br/>
+                    <span className="text-xl md:text-2xl lg:text-3xl">{project?.name}</span>
                 </h1>
 
                 <p className='text-foreground/80 text-sm md:text-base'>

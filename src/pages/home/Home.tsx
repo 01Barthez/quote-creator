@@ -13,7 +13,7 @@ const Home: React.FC = () => {
             />
 
             {/* App Comoments */}
-            <section className='container py-10 md:py-16 lg:py-20 flex items-center justify-center flex-col gap-4 md:gap-6 lg:gap-10'>
+            <section className='container py-16 md:py-24 lg:py-36 flex items-center justify-center flex-col gap-4 md:gap-6 lg:gap-10'>
                 {/* Title */}
                 <motion.h1
                     className='max-w-[100%] md:max-w-[80%] lg:max-w-[70%] text-xl md:text-2xl lg:text-4xl font-bold text-center'

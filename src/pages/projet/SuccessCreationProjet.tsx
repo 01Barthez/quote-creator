@@ -21,13 +21,14 @@ const SuccessCreationProjet: React.FC = () => {
       hasSeenSuccess
     });
   }, [project, slug, hasSeenSuccess]);
-
+  
+/*
   // Redirection avant le rendu si le projet est invalide
   if (!project || project.slug !== slug || hasSeenSuccess) {
     console.log("Redirection vers /page-not-found");
     navigate("/page-not-found", { replace: true });
   }
-
+*/
   // Mark page as ever seen
   useEffect(() => {
     markSuccessSeen();

@@ -103,7 +103,7 @@ export const phasesSchema = z.object({
         invalid_type_error: "Invalid end date format!"
     }),
 
-    material: z.array(materialSchema)
+    materials: z.array(materialSchema)
         .min(1, {
             message: "You should provide at lest one materail"
         })

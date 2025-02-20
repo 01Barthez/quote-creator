@@ -1,7 +1,7 @@
+"use client"
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BiCalendar } from "react-icons/bi";
-"use client"
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Button } from '@/components/ui/button'
 import { useNavigate } from 'react-router-dom'
@@ -28,10 +28,79 @@ import { Calendar } from '@/components/ui/calendar';
 import { format } from "date-fns"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
+import { AutoComplete, type Option } from "@/components/custom/utils/Autocomplete";
+
+const FRAMEWORKS = [
+    {
+        value: "next.js",
+        label: "Next.js",
+    },
+    {
+        value: "sveltekit",
+        label: "SvelteKit",
+    },
+    {
+        value: "nuxt.js",
+        label: "Nuxt.js",
+    },
+    {
+        value: "remix",
+        label: "Remix",
+    },
+    {
+        value: "astro",
+        label: "Astro",
+    },
+    {
+        value: "wordpress",
+        label: "WordPress",
+    },
+    {
+        value: "express.js",
+        label: "Express.js",
+    },
+    {
+        value: "nest.js",
+        label: "Nest.js",
+    },
+    {
+        value: "astro",
+        label: "Astro",
+    },
+    {
+        value: "wordpress",
+        label: "WordPress",
+    },
+    {
+        value: "express.js",
+        label: "Express.js",
+    },
+    {
+        value: "nest.js",
+        label: "Nest.js",
+    },
+    {
+        value: "astro",
+        label: "Astro",
+    },
+    {
+        value: "wordpress",
+        label: "WordPress",
+    },
+    {
+        value: "express.js",
+        label: "Express.js",
+    },
+    {
+        value: "nest.js",
+        label: "Nest.js",
+    },
+]
 
 const DetailProjet: React.FC = () => {
     const navigate = useNavigate();
     const { setProject, project } = useProjectStore();
+    const [value, setValue] = useState<Option>()
 
     const form = useForm<z.infer<typeof phasesSchema>>({
         resolver: zodResolver(phasesSchema),
@@ -259,7 +328,47 @@ const DetailProjet: React.FC = () => {
                                 </FormLabel>
 
                                 {/* List of materails */}
+                                <div className="flex items-center gap-1">
+                                    <AutoComplete
+                                        options={FRAMEWORKS}
+                                        emptyMessage="No results."
+                                        placeholder="Find something"
+                                        onValueChange={setValue}
+                                        value={value}
+                                    // isLoading={isLoading}
+                                    // disabled={isDisabled}
+                                    // Current value: {value ? value?.label : "No value selected"}
+                                    />
 
+                                </div>
+
+                                <FormItem>
+                                    <FormLabel className="text-base">
+                                        Quantity
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            type="number"
+                                            defaultValue={1}
+                                            placeholder="Exp: 10"
+                                            autoComplete='off'
+                                            required
+                                            min={0}
+                                            max={999}
+                                            className="border-foreground max-w-20
+                                            appearance-none focus:outline-none
+                                            [&::-webkit-inner-spin-button]:appearance-none 
+                                            [&::-webkit-outer-spin-button]:appearance-none 
+                                            [&::-moz-appearance]:textfield 
+                                            [&::-ms-clear]:hidden
+                                            "
+
+                                        // {...field}
+                                        />
+                                    </FormControl>
+
+                                    <FormMessage />
+                                </FormItem>
                             </div>
                         </div>
 

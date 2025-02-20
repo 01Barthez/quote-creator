@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react'
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Button } from '@/components/ui/button'
-import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
 import type { z } from "zod";
 import {
@@ -18,67 +17,63 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Textarea } from "@/components/ui/textarea"
 import { useProjectStore } from "@/stores/projet.store";
-import { Navigate } from 'react-router-dom';
 import type { IProject } from '@/interface/interface';
 import { phasesSchema } from '@/core/schema/schema';
-import slug from 'slug'
+import { motion } from 'framer-motion';
 
 
 const DetailProjet: React.FC = () => {
-    const { slug } = useParams();
     const navigate = useNavigate();
     const { setProject, project } = useProjectStore();
 
-     const form = useForm<z.infer<typeof phasesSchema>>({
-            resolver: zodResolver(phasesSchema),
-            defaultValues: {
-                name: ``,
-                description: ``,
-            },
-        })
-    
-        useEffect(() => {
-            if (project && project.name) {
-                form.reset({
-                    name: project.name,
-                    description: project.description,
-                });
-            }
-        }, [project, form]);
+    const form = useForm<z.infer<typeof phasesSchema>>({
+        resolver: zodResolver(phasesSchema),
+        defaultValues: {
+            name: ``,
+            description: ``,
+        },
+    })
+
+    useEffect(() => {
+        if (project && project.name) {
+            form.reset({
+                name: project.name,
+                description: project.description,
+            });
+        }
+    }, [project, form]);
+
     /*
-    // Redirection if projet is not valid
-            useEffect(() => {
-            if (!project || project.slug !== slug) {
+        // Redirection if projet is not valid
+        useEffect(() => {
+            if (!project) {
                 console.log("Redirection vers /page-not-found");
                 navigate("/page-not-found", { replace: true });
             }
-        }, [project, slug]);
+        }, [project]);
     */
-    const backProjet = () => {
+    const backOnNewProjet = () => {
         navigate('/new-projet');
     }
 
     function onSubmit(values: z.infer<typeof phasesSchema>) {
-        const slugName = slug(values.name);
-
         const newProject: IProject = {
             name: values.name,
             description: values.description,
-            slug: slugName,
             status: "draft",
             phases: [],
         };
 
         setProject(newProject);
-        navigate(`/validate-projet/${slugName}`);
+        navigate(`/validate-projet`);
         console.log(newProject);
-    }    
+    }
 
     return (
         <section className="container space-y-10 py-10 md:py-16 lg:py-20 ">
             <div className="flex flex-col gap-2">
                 <h1 className='text-2xl md:text-3xl lg:text-4xl font-bold'>
-                    <span className="text-primary">D</span>etail of &nbsp;<span className="text-primary">P</span>rojet <br/>
+                    <span className="text-primary">D</span>etail of &nbsp;<span className="text-primary">P</span>rojet <br />
                     <span className="text-xl md:text-2xl lg:text-3xl">{project?.name}</span>
                 </h1>
 
@@ -146,22 +141,34 @@ const DetailProjet: React.FC = () => {
                         />
                     </div>
 
-                    <div className="flex items-center gap-4 md:gap-6 lg:gap-10">
-                        <Button
-                            variant={'outline'}
-                            className='px-4 md:px-6 lg:px-8 border-foreground/30 text-foreground/70'
-                            onClick={backProjet}
+                    <div className="flex items-center gap-3 md:gap-4 lg:gap-8">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: .5, delay: 0.3, ease: "easeOut" }}
                         >
-                            <span>Back&nbsp;Home</span>
-                        </Button>
+                            <Button
+                                variant={'outline'}
+                                className='px-2 md:px-2 lg:px-3 border-foreground/30 text-foreground/70'
+                                onClick={ backOnNewProjet }
+                            >
+                                <span>Previous</span>
+                            </Button>
+                        </motion.div>
 
-                        <Button
-                            type="submit"
-                            className="px-4 md:px-6 lg:px-8 font-semibold"
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: .6, delay: 0.4, ease: "easeOut" }}
                         >
-                            <span>Next</span>
-                            <AiOutlineArrowRight />
-                        </Button>
+                            <Button
+                                type="submit"
+                                className="px-4 md:px-8 lg:px-10 font-semibold"
+                            >
+                                <span>Next</span>
+                                <AiOutlineArrowRight />
+                            </Button>
+                        </motion.div>
                     </div>
                 </form>
             </Form>

@@ -13,23 +13,13 @@ const SuccessCreationProjet: React.FC = () => {
   const { hasSeenSuccess, markSuccessSeen } = useProjectStore();
   const { slug } = useParams();
 
-  // visualisations logs
-  useEffect(() => {
-    console.log({
-      project,
-      "Project Slug": project?.slug,
-      "URL Slug": slug,
-      hasSeenSuccess
-    });
-  }, [project, slug, hasSeenSuccess]);
-
   const viewDashboard = () => {
-    navigate(`/dashboard-projet/${slug}`, { replace: true });
+    navigate(`/dashboard-projet`, { replace: true });
   }
 
   // Redirection if projet is not valid
   useEffect(() => {
-    if (!project || project.slug !== slug || hasSeenSuccess) {
+    if (!project || hasSeenSuccess) {
       console.log("Redirection vers /page-not-found");
       navigate("/page-not-found", { replace: true });
     }

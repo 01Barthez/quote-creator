@@ -18,7 +18,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Textarea } from "@/components/ui/textarea"
 import { useProjectStore } from "@/stores/projet.store";
-import slug from 'slug'
 import type { IProject } from "@/interface/interface";
 import { motion } from 'framer-motion';
 
@@ -35,7 +34,7 @@ const CreateProjet: React.FC = () => {
     })
 
     useEffect(() => {
-        if (project && project.name) {
+        if (project && (project.name || project.description)) {
             form.reset({
                 name: project.name,
                 description: project.description,
@@ -45,18 +44,15 @@ const CreateProjet: React.FC = () => {
 
     
     function onSubmit(values: z.infer<typeof projectSchema>) {
-        const slugName = slug(values.name)
-
         const newProject: IProject = {
             name: values.name,
             description: values.description,
-            slug: slugName,
             status: "draft",
             phases: [],
         };
 
         setProject(newProject);
-        navigate(`/details-projet/${slugName}`);
+        navigate(`/details-projet`);
     }
 
     return (
@@ -148,7 +144,7 @@ const CreateProjet: React.FC = () => {
                         />
                     </motion.div>
 
-                    <div className="flex items-center gap-4 md:gap-6 lg:gap-10">
+                    <div className="flex items-center gap-3 md:gap-4 lg:gap-8">
                         <motion.div
                             initial={{ opacity: 0, scale: 0 }}
                             animate={{ opacity: 1, scale: 1 }}
@@ -170,7 +166,7 @@ const CreateProjet: React.FC = () => {
                         >
                             <Button
                                 type="submit"
-                                className="px-4 md:px-6 lg:px-8 font-semibold"
+                                className="px-4 md:px-8 lg:px-10 font-semibold"
                             >
                                 <span>Next</span>
                                 <AiOutlineArrowRight />

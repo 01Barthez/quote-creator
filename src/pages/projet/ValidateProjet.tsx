@@ -25,7 +25,7 @@ const ValidateProjet: React.FC = () => {
 
     // Redirection if projet is not valid
     useEffect(() => {
-        if (!project || project.slug !== slug) {
+        if (!project) {
             console.log("Redirection vers /page-not-found");
             navigate("/page-not-found", { replace: true });
         }
@@ -35,7 +35,7 @@ const ValidateProjet: React.FC = () => {
         setPosting(true);
 
         // Post the project to atabase
-        navigate(`/success-creation-projet/${slug}`);
+        navigate(`/success-creation-projet`);
     }
 
     const totalProjectDuration = useMemo(() => {
@@ -388,7 +388,7 @@ const ValidateProjet: React.FC = () => {
                             className='backdrop-blur-md'
                             variant={'outline'}
                             onClick={() => {
-                                navigate(`/details-projet/${slug}`);
+                                navigate(`/details-projet`);
                             }}
                         >
                             Go Back

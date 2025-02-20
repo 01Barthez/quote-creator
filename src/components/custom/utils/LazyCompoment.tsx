@@ -23,6 +23,7 @@ const DynamicPageLoader: React.FC<DynamicPageLoaderProps> = ({ pageKey }) => {
             return Promise.reject(new Error(`Page not found: ${pageKey}`));
         }
 
+        console.log("Corect import ");
         return importPage();
     });
 

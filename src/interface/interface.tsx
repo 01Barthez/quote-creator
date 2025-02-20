@@ -75,7 +75,7 @@ export interface IPhase {
 export interface IProject {
     name: string;
     description: string;
-    slug: string;
+    slug?: string;
     status: statusProjet;
     phases: IPhase[];
   };

@@ -17,7 +17,7 @@ const Router = createBrowserRouter([
 		path: '',
 		element: (
 			<>
-				<Outlet />
+				<Outlet key={location.pathname} />
 
 				{/* To scroll to top each time that we change routes */}
 				<ScrollToTop />
@@ -32,9 +32,7 @@ const Router = createBrowserRouter([
 				path: '/',
 				element: <>
 					<Navbar />
-					<div className=''>
-						<Outlet />
-					</div>
+					<Outlet />
 					<Footer />
 				</>,
 				children: [
@@ -55,4 +53,3 @@ const Router = createBrowserRouter([
 ])
 
 export default Router
- 

@@ -10,7 +10,7 @@ const PrivateRoute : React.FC<IPrivateRouteProps> = ({ children } ) => {
   const navigate = useNavigate();
   
   if (!isAuthenticated) {
-    navigate('.', { replace: true });
+    navigate('/login ', { replace: true });
     return <></>;
   }
 

@@ -54,7 +54,7 @@ const DetailProjet: React.FC = () => {
             }
         }, [project, slug]);
     */
-    const backHome = () => {
+    const backProjet = () => {
         navigate('/new-projet');
     }
 
@@ -150,7 +150,7 @@ const DetailProjet: React.FC = () => {
                         <Button
                             variant={'outline'}
                             className='px-4 md:px-6 lg:px-8 border-foreground/30 text-foreground/70'
-                            onClick={backHome}
+                            onClick={backProjet}
                         >
                             <span>Back&nbsp;Home</span>
                         </Button>

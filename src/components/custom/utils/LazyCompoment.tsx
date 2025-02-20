@@ -11,19 +11,26 @@ interface DynamicPageLoaderProps {
 const pages = import.meta.glob('/src/pages/**/*.tsx');
 
 const DynamicPageLoader: React.FC<DynamicPageLoaderProps> = ({ pageKey }) => {
+    console.log(`Loading page: ${pageKey}`);
+
     // Lazy load the page based on the provided pageKey 
     // @ts-ignore-next-line
     const PageComponent = lazy(() => {
         const importPage = pages[`/src/pages/${pageKey}.tsx`];
+
         if (!importPage) {
+            console.error(`Page not found: ${pageKey}`);
             return Promise.reject(new Error(`Page not found: ${pageKey}`));
         }
+
         return importPage();
     });
 
     return (
         <Suspense fallback={<LoaderPage />}>
+            <React.StrictMode>
                 <PageComponent />
+            </React.StrictMode>
         </Suspense>
     );
 };

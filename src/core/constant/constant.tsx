@@ -12,8 +12,8 @@ export const project: IProject = {
             name: "Etablissement du cahier de charge fonctionnel",
             description: "Nécessite un cahier de charge fonctionnel afin de spécifier en détail le besoin",
             status: "pending",
-            startDate: "01-01-2025",
-            endDate: "04-01-2025",
+            startDate: "2025-01-01",
+            endDate: "2025-01-06",
            
             materials: [
                 {
@@ -33,8 +33,8 @@ export const project: IProject = {
             name: "Etablissement du cahier de charge technique",
             description: "Nécessite un cahier de charge technique pour spécifier les besoins techniques pour la réalisation du projet",
             status: "pending",
-            startDate: "04-01-2025",
-            endDate: "10-01-2025",
+            startDate: "2025-01-04",
+            endDate: "2025-01-10",
            
             materials: [
                 {
@@ -54,8 +54,8 @@ export const project: IProject = {
             name: "Coulages du pont",
             description: "Débarrasage des emcombrements sur le terrain de construction",
             status: "pending",
-            startDate: "16-01-2025",
-            endDate: "20-01-2025",
+            startDate: "2025-01-16",
+            endDate: "2025-01-20",
            
             materials: [
                 {
@@ -85,8 +85,8 @@ export const project: IProject = {
             name: "Fondations du pont",
             description: "Débarrasage des emcombrements sur le terrain de construction",
             status: "pending",
-            startDate: "13-01-2025",
-            endDate: "06-06-2025",
+            startDate: "2025-01-13",
+            endDate: "2025-06-06",
            
             materials: [
                 {
@@ -111,8 +111,8 @@ export const project: IProject = {
             name: "Coulages et finissions du pont",
             description: "Débarrasage des emcombrements sur le terrain de construction",
             status: "pending",
-            startDate: "05-05-2025",
-            endDate: "20-11-2025",
+            startDate: "2025-05-05",
+            endDate: "2025-11-20",
            
             materials: [
                 {

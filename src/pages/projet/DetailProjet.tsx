@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Button } from '@/components/ui/button'
 import { useParams } from 'react-router-dom';
@@ -18,10 +18,10 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Textarea } from "@/components/ui/textarea"
 import { useProjectStore } from "@/stores/projet.store";
-import slug from 'slug'
 import { Navigate } from 'react-router-dom';
 import type { IProject } from '@/interface/interface';
 import { phasesSchema } from '@/core/schema/schema';
+import slug from 'slug'
 
 
 const DetailProjet: React.FC = () => {
@@ -29,29 +29,37 @@ const DetailProjet: React.FC = () => {
     const navigate = useNavigate();
     const { setProject, project } = useProjectStore();
 
-    const form = useForm<z.infer<typeof phasesSchema>>({
-        resolver: zodResolver(phasesSchema),
-        defaultValues: {
-            name: `${project && project.name}`,
-            description: `${project && project.description}`,
-        },
-    })
+     const form = useForm<z.infer<typeof phasesSchema>>({
+            resolver: zodResolver(phasesSchema),
+            defaultValues: {
+                name: ``,
+                description: ``,
+            },
+        })
+    
+        useEffect(() => {
+            if (project && project.name) {
+                form.reset({
+                    name: project.name,
+                    description: project.description,
+                });
+            }
+        }, [project, form]);
     /*
-    if (!project || project.slug !== slug) {
-        return(
-            <>
-                <Navigate to="/page-not-found" />;
-            </>
-        )
-    }
+    // Redirection if projet is not valid
+            useEffect(() => {
+            if (!project || project.slug !== slug) {
+                console.log("Redirection vers /page-not-found");
+                navigate("/page-not-found", { replace: true });
+            }
+        }, [project, slug]);
     */
     const backHome = () => {
-        navigate(-1);
+        navigate('/new-projet');
     }
 
     function onSubmit(values: z.infer<typeof phasesSchema>) {
-
-        const slugName = slug(values.name)
+        const slugName = slug(values.name);
 
         const newProject: IProject = {
             name: values.name,
@@ -62,7 +70,7 @@ const DetailProjet: React.FC = () => {
         };
 
         setProject(newProject);
-        navigate(`/details-projet/${slugName}`);
+        navigate(`/validate-projet/${slugName}`);
         console.log(newProject);
     }    
 

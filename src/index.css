@@ -125,13 +125,22 @@
     @apply origin-left scale-100 transition duration-300;
   }
 
+  .text-lg-title {
+    @apply relative max-w-[100%] text-2xl font-bold md:max-w-[80%] md:text-3xl lg:max-w-[70%] lg:text-4xl;
+  }
+
+  .text-lg-title::after {
+    content: '';
+    @apply absolute -bottom-1 left-10 h-1 w-[25%] rounded-full bg-gradient-to-l from-foreground via-primary to-foreground/85;
+  }
+
   .text-sm-title {
-    @apply text-2xl font-semibold md:text-2xl;
+    @apply text-xl font-semibold md:text-2xl;
   }
 
   .validation td,
   .validation th {
-    @apply border;
+    @apply border-2 border-foreground;
   }
 
   .validation th {
@@ -143,8 +152,6 @@
   }
 
   /* postingLoader */
-  /* HTML: <div class="loader"></div> */
-  /* HTML: <div class="loader"></div> */
   .postingLoader {
     width: 26px;
     aspect-ratio: 1;
@@ -175,5 +182,18 @@
     100% {
       transform: rotate(1turn);
     }
+  }
+
+  /* Yin - Yan styles */
+  .yin-yang {
+    @apply relative box-content h-4 w-8 rounded-full border-[0.1rem] border-b-[1rem] border-solid border-primary bg-background;
+  }
+  .yin-yang:before {
+    content: '';
+    @apply absolute left-0 top-1/2 box-content h-[.25rem] w-[.25rem] rounded-full border-[.4rem] border-solid border-primary bg-background;
+  }
+  .yin-yang:after {
+    content: '';
+    @apply absolute left-1/2 top-1/2 box-content h-[.25rem] w-[.25rem] rounded-full border-[.4rem] border-solid border-background bg-primary;
   }
 }

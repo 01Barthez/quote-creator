@@ -1,7 +1,7 @@
 // "use client"
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Button } from '@/components/ui/button'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { projectSchema } from "@/core/schema/schema";
 import type { z } from "zod";
@@ -29,13 +29,22 @@ const CreateProjet: React.FC = () => {
     const form = useForm<z.infer<typeof projectSchema>>({
         resolver: zodResolver(projectSchema),
         defaultValues: {
-            name: `${project && project.name}`,
-            description: `${project && project.description}`,
+            name: ``,
+            description: ``,
         },
     })
 
-    function onSubmit(values: z.infer<typeof projectSchema>) {
+    useEffect(() => {
+        if (project && project.name) {
+            form.reset({
+                name: project.name,
+                description: project.description,
+            });
+        }
+    }, [project, form]);
 
+    
+    function onSubmit(values: z.infer<typeof projectSchema>) {
         const slugName = slug(values.name)
 
         const newProject: IProject = {

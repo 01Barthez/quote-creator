@@ -35,7 +35,7 @@ const ValidateProjet: React.FC = () => {
         setPosting(true);
 
         // Post the project to atabase
-        navigate(`/succes-creation-projet/${slug}`);
+        navigate(`/success-creation-projet/${slug}`);
     }
 
     const totalProjectDuration = useMemo(() => {

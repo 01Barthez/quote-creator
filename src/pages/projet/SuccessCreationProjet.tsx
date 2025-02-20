@@ -6,10 +6,11 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { RiDashboardLine } from "react-icons/ri";
 import { motion } from "framer-motion";
 import { handleConfetti } from '@/functions/confetti'
+import { project } from "@/core/constant/constant";
 
 const SuccessCreationProjet: React.FC = () => {
   const navigate = useNavigate();
-  const { project, hasSeenSuccess, markSuccessSeen } = useProjectStore();
+  const { hasSeenSuccess, markSuccessSeen } = useProjectStore();
   const { slug } = useParams();
 
   // visualisations logs
@@ -21,16 +22,19 @@ const SuccessCreationProjet: React.FC = () => {
       hasSeenSuccess
     });
   }, [project, slug, hasSeenSuccess]);
-  
-/*
+
+  const viewDashboard = () => {
+    navigate(`/dashboard-projet/${slug}`, { replace: true });
+  }
+
   // Redirection if projet is not valid
-          useEffect(() => {
-          if (!project || project.slug !== slug) {
-              console.log("Redirection vers /page-not-found");
-              navigate("/page-not-found", { replace: true });
-          }
-      }, [project, slug]);
-*/
+  useEffect(() => {
+    if (!project || project.slug !== slug || hasSeenSuccess) {
+      console.log("Redirection vers /page-not-found");
+      navigate("/page-not-found", { replace: true });
+    }
+  }, [project, slug]);
+
   // Mark page as ever seen
   useEffect(() => {
     markSuccessSeen();
@@ -52,7 +56,7 @@ const SuccessCreationProjet: React.FC = () => {
       />
 
       {/* Section of validation page  */}
-      <section className='relative container py-10 md:py-16 lg:py-20 flex items-center justify-center flex-col gap-4 md:gap-6 lg:gap-10'>
+      <section className='relative container py-20 md:py-32 lg:py-44 flex items-center justify-center flex-col gap-4 md:gap-6 lg:gap-10'>
         {/* Animated Title */}
         <motion.h1
           className='max-w-[100%] md:max-w-[80%] lg:max-w-[70%] text-xl md:text-2xl lg:text-4xl font-bold text-center'
@@ -70,7 +74,7 @@ const SuccessCreationProjet: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: .6, delay: 0.2, ease: "easeOut" }}
         >
-          Congratulations! Your project "&nbsp;<span className="font-medium">{project?.name}</span>&nbsp;" has been successfully created. <br />
+          Congratulations! Your project "&nbsp;<span className="font-semibold">{project?.name}</span>&nbsp;" has been successfully created. <br />
           What's next? Let's move forward!
         </motion.p>
 
@@ -101,9 +105,7 @@ const SuccessCreationProjet: React.FC = () => {
             <Button
               className='flex items-center gap-1 backdrop-blur-md'
               variant={'default'}
-              onClick={() => {
-                navigate(`/dashboard-projet/${slug}`, { replace: true });
-              }}
+              onClick={ viewDashboard }
             >
               <RiDashboardLine />
               <span>View the Dashboard</span>

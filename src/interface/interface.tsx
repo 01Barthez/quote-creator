@@ -67,8 +67,8 @@ export interface IPhase {
     name: string;
     description: string;
     status: statusPhase;
-    startDate: string;
-    endDate: string;
+    startDate: Date;
+    endDate: Date;
     materials: IMaterial[];
 };
 

@@ -7,14 +7,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { Button } from '@/components/ui/button'
 import { useNavigate } from 'react-router-dom'
 import type { z } from "zod";
-import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -22,7 +15,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { useProjectStore } from "@/stores/projet.store";
 import type { IProject } from '@/interface/interface';
 import { phasesSchema } from '@/core/schema/schema';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
 import { Calendar } from '@/components/ui/calendar';
@@ -31,7 +24,6 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
 import { AutoComplete, type Option } from "@/components/custom/forms/Autocomplete";
 import NumberInput from "@/components/custom/forms/NumberInput";
-import { AnimatePresence } from 'motion/react';
 
 const DetailProjet: React.FC = () => {
     const navigate = useNavigate();
@@ -70,12 +62,6 @@ const DetailProjet: React.FC = () => {
             }
         }, 50);
     };
-
-    // useEffect(() => {
-    //     if (containerRef.current) {
-    //         containerRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
-    //     }
-    // }, [phases]);
 
     const form = useForm<z.infer<typeof phasesSchema>>({
         resolver: zodResolver(phasesSchema),
